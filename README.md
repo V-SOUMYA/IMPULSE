@@ -2,46 +2,69 @@
   <img width="1200" height="475" alt="SeeTheForce Banner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# SeeTheForce
+# SeeTheForce  
 ### From Equation to Motion
 
-**SeeTheForce** is an AI-powered physics visualization tool that transforms classical physics problems into clear, educational animations.  
-It helps learners bridge the gap between mathematical equations and physical intuition.
+SeeTheForce is an AI-powered web application that helps users understand classical physics by turning physics questions into simple visual animations and graphs.
+
+The goal of this project is to make physics easier to understand by showing how equations relate to real motion.
 
 ---
 
-## 🚀 What it does
+## What does this project do?
 
-- Converts physics questions into animated motion using **Gemini**
-- Shows **physical motion** and **mathematical graphs** side by side
-- Focuses on clarity and intuition, not just computation
+- Takes a classical physics question as input  
+- Uses the Gemini API to analyze the problem  
+- Converts the physics solution into structured motion data  
+- Displays:
+  - **Physical motion** (an object moving in space)
+  - **Mathematical representation** (a graph such as position vs time)
 
-Supported concepts include:
-- Kinematics (1D & 2D motion, free fall, projectile motion)
-- Uniform acceleration & braking
-- Graph-based motion (position vs time, velocity vs time)
-- Introductory Newtonian mechanics (simplified)
-
----
-
-## 🧠 How it works
-
-1. A user enters a classical physics question
-2. Gemini analyzes the problem and generates structured motion data
-3. The frontend renders:
-   - **Physical motion** (object moving in space)
-   - **Mathematical representation** (graph with labeled axes)
-4. Both views update in sync — showing the same physics in two forms
-
-This is what we mean by **From Equation to Motion**.
+Both views update together, so users can see the same physics in two different ways.
 
 ---
 
-## 🖥️ Run Locally
+## Physics topics covered
 
-### Prerequisites
-- Node.js (v18+ recommended)
+The project focuses mainly on core classical physics concepts, including:
 
-### Setup
-```bash
+- Kinematics  
+  - Motion in 1D and 2D  
+  - Uniform acceleration  
+  - Free fall  
+  - Projectile motion  
+
+- Introductory Newton’s laws (simplified)
+  - Motion under forces such as gravity or friction  
+
+- Graph-based understanding
+  - Position vs time  
+  - Velocity vs time  
+
+The animations are designed to be **clear and educational**, not overly complex.
+
+---
+
+## How does it work?
+
+1. The user enters a physics question.
+2. The Gemini API processes the question and generates motion data.
+3. The frontend uses this data to render:
+   - A moving object that represents real motion.
+   - A graph that represents the same motion mathematically.
+4. The animation and graph stay synchronized to help users understand the connection.
+
+This is what the tagline **“From Equation to Motion”** represents.
+
+---
+
+## Running the project locally
+
+### Requirements
+- Node.js (version 18 or higher recommended)
+
+### Steps
+
+1. Install dependencies:
+   ```bash
 npm install
