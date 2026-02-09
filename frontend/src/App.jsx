@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CanvasRenderer from "./CanvasRenderer";
 
 function App() {
   const [question, setQuestion] = useState("");
@@ -6,25 +7,14 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   const simulatePhysics = async () => {
-    if (!question.trim()) return;
-
     setLoading(true);
-    try {
-      const res = await fetch("http://localhost:5174/simulate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ question }),
-      });
-
-      const data = await res.json();
-      console.log("Simulation result:", data);
-      setResult(data);
-    } catch (err) {
-      console.error(err);
-      alert("Failed to simulate physics");
-    }
+    const res = await fetch("http://localhost:5174/simulate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question }),
+    });
+    const data = await res.json();
+    setResult(data);
     setLoading(false);
   };
 
@@ -33,38 +23,22 @@ function App() {
       <h1>SeeTheForce ⚡</h1>
 
       <textarea
-        rows={4}
-        style={{ width: "100%", fontSize: 16 }}
+        rows={3}
+        style={{ width: "100%" }}
         placeholder="Enter a physics question..."
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
       />
 
-      <button
-        onClick={simulatePhysics}
-        disabled={loading}
-        style={{
-          marginTop: 12,
-          padding: "8px 16px",
-          fontSize: 16,
-          cursor: "pointer",
-        }}
-      >
+      <button onClick={simulatePhysics} disabled={loading}>
         {loading ? "Simulating..." : "Animate"}
       </button>
 
       {result && (
-        <pre
-          style={{
-            marginTop: 20,
-            padding: 12,
-            background: "#f5f5f5",
-            maxHeight: 400,
-            overflow: "auto",
-          }}
-        >
-          {JSON.stringify(result, null, 2)}
-        </pre>
+        <>
+          <CanvasRenderer simulation={result} />
+          <p style={{ marginTop: 12 }}>{result.explanation}</p>
+        </>
       )}
     </div>
   );
