@@ -67,4 +67,5 @@ This is what the tagline **“From Equation to Motion”** represents.
 
 1. Install dependencies:
    ```bash
-npm install
+   npm install
+
