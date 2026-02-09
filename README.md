@@ -69,3 +69,7 @@ This is what the tagline **“From Equation to Motion”** represents.
    ```bash
    npm install
 
+2. Create or edit the .env.local file and add your Gemini API key:
+   GEMINI_API_KEY=your_api_key_here
+
+
